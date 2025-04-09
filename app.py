@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # Load the trained model
-with open('loan_model_4.pkl', 'rb') as file:
+with open('loan_model_5.pkl', 'rb') as file:
     model = pickle.load(file)
 
 @app.route('/')
@@ -19,7 +19,7 @@ def predict():
     coapplicant_income = float(request.form['coapplicant_income'])
     loan_amount = float(request.form['loan_amount'])
     loan_amount_term = float(request.form['loan_amount_term'])
-    credit_history = 1 if request.form['credit_history'] == 'No' else 0
+    credit_history = 1 if request.form['credit_history'] == 'Good' else 0
     gender = 1 if request.form['gender'] == 'Male' else 0
     married = 1 if request.form['married'] == 'Yes' else 0
     education = 1 if request.form['education'] == 'Graduate' else 0
